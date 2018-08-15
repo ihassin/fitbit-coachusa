@@ -57,9 +57,11 @@ const functions = {
     const isWeekend = (day === 6) || (day === 0);
 
     const hours = forDay.getHours();
+    const minutes = forDay.getMinutes();
 
     times.forEach(function (element) {
-      if (element[0] >= hours) {
+      let elementMinutes = parseInt(element[1]);
+      if ((element[0] >= hours) && (elementMinutes >= minutes)) {
         var attr = element[2];
 
         let weekendSchedule = /E/.test(attr);

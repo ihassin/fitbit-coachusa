@@ -5,6 +5,38 @@ test('No lines if empty times', () => {
   expect(lines).toBeNull;
 });
 
+test('Correctly shows times when the hour is identical', () => {
+  currentTime = new Date(2018, 7, 13, 7, 0);
+  let times = [
+    [7, '00', 'W'],
+  ];
+
+  lines = functions.filterTimes(currentTime, times);
+  expect(lines.length).toBe(1);
+});
+
+test('Correctly shows times when the hour is identical but minutes in the past', () => {
+  currentTime = new Date(2018, 7, 13, 7, 15);
+  let times = [
+    [7, '00', 'W'],
+  ];
+
+  lines = functions.filterTimes(currentTime, times);
+  expect(lines.length).toBe(0);
+});
+
+test('Correctly shows times when the hour is identical but minutes in the future', () => {
+  currentTime = new Date(2018, 7, 13, 7, 15);
+  let times = [
+    [7, '20', 'W'],
+  ];
+
+  lines = functions.filterTimes(currentTime, times);
+  expect(lines.length).toBe(1);
+});
+
+
+
 test('Weekday line when given times', () => {
   let times = [
     [8, '00', 'W'],
