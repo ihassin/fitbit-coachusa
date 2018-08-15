@@ -1,0 +1,9 @@
+<svg class="background">
+  <text id="line1" x="0%" y="25%">99:99 EXPRESS</text>
+  <text id="line2" x="65%" y="15%">99:99 EXPRESS</text>
+  <text id="line3" x="65%" y="30%">99:99 EXPRESS</text>
+  <text id="line4" x="65%" y="45%">99:99 EXPRESS</text>
+  <text id="line5" x="65%" y="60%">99:99 EXPRESS</text>
+  <text id="line6" x="65%" y="75%">99:99 EXPRESS</text>
+  <text id="line7" x="65%" y="90%">99:99 EXPRESS</text>
+</svg>
