@@ -15,7 +15,7 @@ try {
 const document = require(documentPath);
 const clock = require(clockPath);
 
-const times = [
+const busTimes = [
   [7, '00', 'W'],
   [8, '15', 'WE'],
   [9, '15', 'WE'],
@@ -110,7 +110,7 @@ function clearScreen() {
 clock.granularity = "minutes"; // seconds, minutes, hours
 clearScreen();
 clock.ontick = () => {
-  var results = functions.filterTimes(new Date(), times);
+  var results = functions.filterTimes(new Date(), busTimes);
   display(results);
 };
 
