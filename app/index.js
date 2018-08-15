@@ -60,8 +60,10 @@ const functions = {
     const minutes = forDay.getMinutes();
 
     times.forEach(function (element) {
-      let elementMinutes = parseInt(element[1]);
-      if ((element[0] >= hours) && (elementMinutes >= minutes)) {
+      const elementMinutes = parseInt(element[1]);
+      const elementHours = element[0];
+
+      if ((elementHours > hours) || ((elementHours === hours) && (elementMinutes > minutes))) {
         var attr = element[2];
 
         let weekendSchedule = /E/.test(attr);

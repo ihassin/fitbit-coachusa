@@ -7,8 +7,10 @@ test('No lines if empty times', () => {
 
 test('Correctly shows times when the hour is identical', () => {
   currentTime = new Date(2018, 7, 13, 7, 0);
-  let times = [
+  const times = [
+    [6, '00', 'W'],
     [7, '00', 'W'],
+    [8, '15', 'WE'],
   ];
 
   lines = functions.filterTimes(currentTime, times);
