@@ -1,7 +1,9 @@
 # Fitbit-CoachUSA
 
 A small Fitbit app for the Ionic that displays bus times for me to reference.
-The motivation for this project was to see how I could run unit tests when developing, since at the time of writing, the Web-based Fitbit Studio does not lend itself to testing nor to source control and CI processes. 
+The motivation for this project was to see how I could run unit tests when developing, since at the time of writing, the Web-based Fitbit Studio does not lend itself to testing nor to source control and CI processes.
+
+What is CoachUSA? It's a shoddy bus company that I am obliged to use to get to and from NYC. The app shows bus times coming out of NY to where I live. You can ignore the app entirely, and simply concetrate on the tests themselves and file setup.
 
 # Testing
 
@@ -54,7 +56,16 @@ Hack #3: If I am in Fitbit, then fail on the ```process``` and look for the modu
 
 Hack #4: Fitbit does not support ```module```, so catch it out. 
 
-Make this shit better!
+Make this better!
+
+# Copying to Fitbit studio
+
+Copy index.js to its right place in Studio.
+
+# Todo
+
+* See if copying the whole directory structure causes any problems to Studio
+ 
 
 # Licence
 
