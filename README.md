@@ -19,8 +19,6 @@ JEST=JEST npm test
 The weirdness with ```JEST=JEST``` is because of some hacks needed to allow the code (including the Jest tests) to be compatible accross you development/testing and production environments.
 You'll find references to the environment variable weirdness in ```app/index.js```. It's also explained below in the hope that someone can come up with a better way.
 
-![Demo flow gif](doc/demo.gif)
-
 # Development Environment
 
 I use Intellij and run the tests with the ```JEST=JEST``` added in the run configuration when running Jest.
@@ -61,6 +59,11 @@ Hack #3: If I am in Fitbit, then fail on the ```process``` and look for the modu
 Hack #4: Fitbit does not support ```module```, so catch it out. 
 
 Make this better!
+
+# In action
+
+![Demo flow gif](doc/demo.gif)
+
 
 # Copying to Fitbit studio
 
