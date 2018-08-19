@@ -51,10 +51,9 @@ const busTimes = [
 ];
 
 const functions = {
-  filterTimes: function (forDay, times) {
+  filterTimes: function(forDay, times) {
     let result = [];
-    const day = forDay.getDay();
-    const isWeekend = (day === 6) || (day === 0);
+    const weekend = isWeekend(forDay);
 
     const hours = forDay.getHours();
     const minutes = forDay.getMinutes();
@@ -69,7 +68,7 @@ const functions = {
         let weekendSchedule = /E/.test(attr);
         let weekdaySchedule = /W/.test(attr);
 
-        if (isWeekend) {
+        if (weekend) {
           if (weekendSchedule) {
             result.push(element);
           }
@@ -82,22 +81,27 @@ const functions = {
     });
     return(result);
   },
-  format: function (slot) {
-    var express = /X/.test(slot[2]);
-    var attr = express ? "X" : "";
+  format: function(slot, forDay) {
+    const weekend = isWeekend(forDay);
+    var express = weekend ? /EX/.test(slot[2]) : /WX/.test(slot[2]);
+    var attr = express ? 'X' : '';
     return(`${slot[0]}:${slot[1]} ${attr}`);
   }
+};
 
-}
-
-function display(times) {
+function display(times, forDate) {
   let index = 1;
   times.forEach(function (element) {
     let line = document.getElementById(`line${index}`);
-    line.text = functions.format(element);
+    line.text = functions.format(element, forDate);
     index += 1;
   });
 };
+
+function isWeekend(forDay) {
+  const day = forDay.getDay();
+  return (day === 6) || (day === 0);
+}
 
 function clearScreen() {
   let index = 1;
@@ -110,8 +114,9 @@ function clearScreen() {
 clock.granularity = "minutes"; // seconds, minutes, hours
 clearScreen();
 clock.ontick = () => {
-  var results = functions.filterTimes(new Date(), busTimes);
-  display(results);
+  const forDate = new Date();
+  var results = functions.filterTimes(forDate, busTimes);
+  display(results, forDate);
 };
 
 // Fitbit does not support module

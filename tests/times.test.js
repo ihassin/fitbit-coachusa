@@ -37,8 +37,6 @@ test('Correctly shows times when the hour is identical but minutes in the future
   expect(lines.length).toBe(1);
 });
 
-
-
 test('Weekday line when given times', () => {
   let times = [
     [8, '00', 'W'],
@@ -76,7 +74,7 @@ test('Weekday line for express', () => {
 
   date = makeWeekday();
   lines = functions.filterTimes(date, times);
-  expect(functions.format(lines)).toContain('X')
+  expect(functions.format(lines[0], date)).toEqual(expect.stringContaining('X'));
 });
 
 test('Weekend line for common times', () => {
@@ -96,7 +94,17 @@ test('Weekend line for express', () => {
 
   date = makeWeekend();
   lines = functions.filterTimes(date, times);
-  expect(functions.format(lines)).toContain('X')
+  expect(functions.format(lines[0], date)).toEqual(expect.stringContaining('X'));
+});
+
+test('No express on weekend', () => {
+  let times = [
+    [15, '15', 'WX-E'],
+  ];
+
+  date = makeWeekend();
+  lines = functions.filterTimes(date, times);
+  expect(functions.format(lines[0], date)).toEqual(expect.not.stringContaining('X'));
 });
 
 function makeWeekday() {
