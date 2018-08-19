@@ -5,6 +5,8 @@ The motivation for this project was to see how I could run unit tests when devel
 
 What is CoachUSA? It's a shoddy bus company that I am obliged to use to get to and from NYC. The app shows bus times coming out of NY to where I live. You can ignore the app entirely, and simply concetrate on the tests themselves and file setup.
 
+![Demo screenshot](doc/screenshot.png)
+
 # Testing
 
 Tests are written in Jest, and can be found in the ```tests``` directory.
@@ -16,6 +18,8 @@ JEST=JEST npm test
 
 The weirdness with ```JEST=JEST``` is because of some hacks needed to allow the code (including the Jest tests) to be compatible accross you development/testing and production environments.
 You'll find references to the environment variable weirdness in ```app/index.js```. It's also explained below in the hope that someone can come up with a better way.
+
+![Demo flow gif](doc/demo.gif)
 
 # Development Environment
 
