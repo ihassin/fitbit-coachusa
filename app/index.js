@@ -89,7 +89,7 @@ const functions = {
     const weekend = functions.isWeekend(forDate);
     var express = weekend ? /EX/.test(slot[2]) : /WX/.test(slot[2]);
     var attr = express ? 'X' : '';
-    return(`${slot[0]}:${slot[1]} ${attr}`);
+    return(`${slot[0]}:${slot[1]}${attr}`);
   },
   display: function(times, forDate) {
     let lines = [];
@@ -98,7 +98,7 @@ const functions = {
       let line = document.getElementById(`line${index}`);
       line.text = functions.format(element, forDate);
       lines.push(line);
-      index += 1;
+      index++;
     });
     return(lines);
   },

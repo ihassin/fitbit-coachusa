@@ -6,44 +6,44 @@ config:
   # the default is bash for Linux
   # or powershell.exe for Windows
   command: bash -l
-  
+
   # Specify the current working directory path
   # the default is the current working directory path
   cwd: /Users/ita/projects/fitbit/fitbit-coachusa
-  
+
   # Export additional ENV variables
   env:
     recording: true
-  
+
   # Explicitly set the number of columns
   # or use `auto` to take the current
   # number of columns of your shell
   cols: 160
-  
+
   # Explicitly set the number of rows
   # or use `auto` to take the current
   # number of rows of your shell
   rows: 50
-  
+
   # Amount of times to repeat GIF
   # If value is -1, play once
   # If value is 0, loop indefinitely
   # If value is a positive number, loop n times
   repeat: 0
-  
+
   # Quality
   # 1 - 100
   quality: 100
-  
+
   # Delay between frames in ms
   # If the value is `auto` use the actual recording delays
   frameDelay: auto
-  
+
   # Maximum delay between frames in ms
   # Ignored if the `frameDelay` isn't set to `auto`
   # Set to `auto` to prevent limiting the max idle time
   maxIdleTime: 2000
-  
+
   # The surrounding frame box
   # The `type` can be null, window, floating, or solid`
   # To hide the title use the value null
@@ -55,7 +55,7 @@ config:
       border: 0px black solid
       # boxShadow: none
       # margin: 0px
-  
+
   # Add a watermark image to the rendered gif
   # You need to specify an absolute path for
   # the image on your machine or a URL, and you can also
@@ -68,25 +68,25 @@ config:
       bottom: 15px
       width: 100px
       opacity: 0.9
-  
+
   # Cursor style can be one of
   # `block`, `underline`, or `bar`
   cursorStyle: block
-  
+
   # Font family
   # You can use any font that is installed on your machine
   # in CSS-like syntax
   fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
-  
+
   # The size of the font
   fontSize: 12
-  
+
   # The height of lines
   lineHeight: 1
-  
+
   # The spacing between letters
   letterSpacing: 0
-  
+
   # Theme
   theme:
     background: "transparent"
@@ -108,7 +108,7 @@ config:
     brightMagenta: "#ae89fe"
     brightCyan: "#b1c6ca"
     brightWhite: "#f9f9f4"
-  
+
 # Records, feel free to edit them
 records:
   - delay: 2263
@@ -136,9 +136,9 @@ records:
   - delay: 337
     content: "\e[1m\e[2mDetermining test suites to run...\e[1m\e[22m"
   - delay: 18
-    content: "\e[999D\e[K\r\n\r\e[K\r\e[1A\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n"
+    content: "\e[999D\e[K\r\n\r\e[K\r\e[1A\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n"
   - delay: 688
-    content: "\r\e[K\r\e[1A\r\e[K\r\e[1A\e[0m\e[7m\e[1m\e[32m PASS \e[39m\e[22m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mNo lines if empty times (3ms)\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mCorrectly shows times when the hour is identical (1ms)\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mCorrectly shows times when the hour is identical but minutes in the past\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mCorrectly shows times when the hour is identical but minutes in the future\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mWeekday line when given times\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mNo weekday line when given weekend times (1ms)\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mWeekday line for common times\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mWeekday line for express\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mWeekend line for common times\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mWeekend line for express (1ms)\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A\e[999D\e[K\e[1mTest Suites: \e[22m\e[1m\e[32m1 passed\e[39m\e[22m, 1 total\r\n\e[1mTests:       \e[22m\e[1m\e[32m10 passed\e[39m\e[22m, 10 total\r\n\e[1mSnapshots:   \e[22m0 total\r\n\e[1mTime:\e[22m        0.698s, estimated 1s\r\n\e[2mRan all test suites\e[22m\e[2m.\e[22m\r\n"
+    content: "\r\e[K\r\e[1A\r\e[K\r\e[1A\e[0m\e[7m\e[1m\e[32m PASS \e[39m\e[22m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mNo lines if empty times (3ms)\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mCorrectly shows times when the hour is identical (1ms)\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mCorrectly shows times when the hour is identical but minutes in the past\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mCorrectly shows times when the hour is identical but minutes in the future\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mWeekday line when given times\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mNo weekday line when given weekend times (1ms)\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mWeekday line for common times\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mWeekday line for express\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mWeekend line for common times\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A  \e[32m✓\e[39m \e[2mWeekend line for express (1ms)\e[22m\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A\r\n\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A\r\n\e[0m\e[7m\e[33m\e[1m RUNS \e[22m\e[39m\e[27m\e[0m \e[2mtests/\e[22m\e[1mtimes.all.test.js\e[22m\r\n\r\e[K\r\e[1A\r\e[K\r\e[1A\e[999D\e[K\e[1mTest Suites: \e[22m\e[1m\e[32m1 passed\e[39m\e[22m, 1 total\r\n\e[1mTests:       \e[22m\e[1m\e[32m10 passed\e[39m\e[22m, 10 total\r\n\e[1mSnapshots:   \e[22m0 total\r\n\e[1mTime:\e[22m        0.698s, estimated 1s\r\n\e[2mRan all test suites\e[22m\e[2m.\e[22m\r\n"
   - delay: 21
     content: "~/projects/fitbit/fitbit-coachusa\e[0;36m (master)\e[0m$ "
   - delay: 1914
