@@ -3,7 +3,7 @@
 A small Fitbit app for the Ionic that displays bus times for me to reference.
 The motivation for this project was to see how I could run unit tests when developing, since at the time of writing, the Web-based Fitbit Studio does not lend itself to testing nor to source control and CI processes.
 
-What is CoachUSA? It's a shoddy bus company that I am obliged to use to get to and from NYC. The app shows bus times coming out of NY to where I live. You can ignore the app entirely, and simply concetrate on the tests themselves and file setup.
+What is CoachUSA? It's a shoddy bus company that I am obliged to use to get to and from NYC. The app shows bus times coming out of NY to where I live. You can ignore the app entirely, and simply concentrate on the tests themselves and file setup.
 
 ![Demo screenshot](doc/screenshot.png)
 
@@ -52,7 +52,7 @@ try {
 ```
 Hack #1: Fitbit does not support ```process``` so the whole thing is in a try-catch.
 
-Hack #2: If I am local, then use the mock ```documetn``` and ```clock``` modules in the ```tests``` directory, else use the real ones.
+Hack #2: If I am local, then use the mock ```document``` and ```clock``` modules in the ```tests``` directory, else use the real ones.
 
 Hack #3: If I am in Fitbit, then fail on the ```process``` and look for the modules in their production location.
 

@@ -1,8 +1,13 @@
-function getElementById(id) {
-  return('id');
+class MyElement {
+  constructor() {
+    this.text = '';
+  }
+}
+
+const documentFunctions = {
+  getElementById : function(id) {
+    return new MyElement();
+  }
 };
 
-module.exports = {
-  getElementById : getElementById
-};
-
+module.exports = documentFunctions;

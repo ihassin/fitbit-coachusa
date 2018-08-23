@@ -1,4 +1,5 @@
 const functions = require('../app/index');
+const helpers = require('./test-helpers');
 
 test('No lines if empty times', () => {
   lines = functions.filterTimes(new Date(), []);
@@ -41,7 +42,7 @@ test('Weekday line when given times', () => {
   let times = [
     [8, '00', 'W'],
   ];
-  date = makeWeekday();
+  date = helpers.makeWeekday();
 
   lines = functions.filterTimes(date, times);
   expect(lines.length).toBe(1);
@@ -52,7 +53,7 @@ test('No weekday line when given weekend times', () => {
     [8, '00', 'E'],
   ];
 
-  date = makeWeekday();
+  date = helpers.makeWeekday();
   lines = functions.filterTimes(date, times);
   expect(lines.length).toBe(0);
 });
@@ -62,7 +63,7 @@ test('Weekday line for common times', () => {
     [8, '00', 'W-E'],
   ];
 
-  date = makeWeekday();
+  date = helpers.makeWeekday();
   lines = functions.filterTimes(date, times);
   expect(lines.length).toBe(1);
 });
@@ -72,7 +73,7 @@ test('Weekday line for express', () => {
     [8, '00', 'WX-E'],
   ];
 
-  date = makeWeekday();
+  date = helpers.makeWeekday();
   lines = functions.filterTimes(date, times);
   expect(functions.format(lines[0], date)).toEqual(expect.stringContaining('X'));
 });
@@ -82,7 +83,7 @@ test('Weekend line for common times', () => {
     [8, '00', 'W-E'],
   ];
 
-  date = makeWeekend();
+  date = helpers.makeWeekend();
   lines = functions.filterTimes(date, times);
   expect(lines.length).toBe(1);
 });
@@ -92,7 +93,7 @@ test('Weekend line for express', () => {
     [8, '00', 'W-EX'],
   ];
 
-  date = makeWeekend();
+  date = helpers.makeWeekend();
   lines = functions.filterTimes(date, times);
   expect(functions.format(lines[0], date)).toEqual(expect.stringContaining('X'));
 });
@@ -102,15 +103,27 @@ test('No express on weekend', () => {
     [15, '15', 'WX-E'],
   ];
 
-  date = makeWeekend();
+  date = helpers.makeWeekend();
   lines = functions.filterTimes(date, times);
   expect(functions.format(lines[0], date)).toEqual(expect.not.stringContaining('X'));
 });
 
-function makeWeekday() {
-  return(new Date(2018, 7, 13, 7, 0));
-}
+test('Displays for non-express', () => {
+  let times = [
+    [8, '00', 'W-E'],
+  ];
 
-function makeWeekend() {
-  return(new Date(2018, 7, 12, 7, 0));
-}
+  date = helpers.makeWeekday();
+  lines = functions.display(times, date);
+  expect(/X/.test(lines[0].text)).toBe(false);
+});
+
+test('Displays for express', () => {
+  let times = [
+    [8, '00', 'WX'],
+  ];
+
+  date = helpers.makeWeekday();
+  lines = functions.display(times, date);
+  expect(/X/.test(lines[0].text)).toBe(true);
+});

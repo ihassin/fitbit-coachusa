@@ -51,9 +51,13 @@ const busTimes = [
 ];
 
 const functions = {
+  isWeekend: function(forDay) {
+    const day = forDay.getDay();
+    return (day === 6) || (day === 0);
+  },
   filterTimes: function(forDay, times) {
     let result = [];
-    const weekend = isWeekend(forDay);
+    const weekend = functions.isWeekend(forDay);
 
     const hours = forDay.getHours();
     const minutes = forDay.getMinutes();
@@ -81,42 +85,39 @@ const functions = {
     });
     return(result);
   },
-  format: function(slot, forDay) {
-    const weekend = isWeekend(forDay);
+  format: function(slot, forDate) {
+    const weekend = functions.isWeekend(forDate);
     var express = weekend ? /EX/.test(slot[2]) : /WX/.test(slot[2]);
     var attr = express ? 'X' : '';
     return(`${slot[0]}:${slot[1]} ${attr}`);
+  },
+  display: function(times, forDate) {
+    let lines = [];
+    let index = 1;
+    times.forEach(function (element) {
+      let line = document.getElementById(`line${index}`);
+      line.text = functions.format(element, forDate);
+      lines.push(line);
+      index += 1;
+    });
+    return(lines);
+  },
+  clearScreen: function() {
+    let index = 1;
+    for (index = 1; index < 8; index++) {
+      let line = document.getElementById(`line${index}`);
+      line.text = "";
+    }
   }
 };
 
-function display(times, forDate) {
-  let index = 1;
-  times.forEach(function (element) {
-    let line = document.getElementById(`line${index}`);
-    line.text = functions.format(element, forDate);
-    index += 1;
-  });
-};
-
-function isWeekend(forDay) {
-  const day = forDay.getDay();
-  return (day === 6) || (day === 0);
-}
-
-function clearScreen() {
-  let index = 1;
-  for (index = 1; index < 8; index++) {
-    let line = document.getElementById(`line${index}`);
-    line.text = "";
-  }
-};
+functions.clearScreen();
 
 clock.granularity = "minutes"; // seconds, minutes, hours
-clearScreen();
 clock.ontick = () => {
   const forDate = new Date();
-  var results = functions.filterTimes(forDate, busTimes);
-  display(results, forDate);
+  var times = functions.filterTimes(forDate, busTimes);
+  return(functions.display(times, forDate));
 };
 
 // Fitbit does not support module
