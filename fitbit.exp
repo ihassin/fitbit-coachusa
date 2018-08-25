@@ -1,0 +1,14 @@
+#!/usr/bin/expect -f
+
+#set timeout -1
+
+spawn ./fitbit-cli.sh
+
+expect "fitbit"
+
+send -- "install\n"
+expect "fitbit"
+
+send -- "exit\r"
+
+expect eof
